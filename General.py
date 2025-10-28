@@ -205,7 +205,7 @@ for sol_num, (routes, route_times) in enumerate(solutions, start=1):
     total = sum(route_times)
     for k, (r, t) in enumerate(zip(routes, route_times), start=1):
         noms = [id2label[index2id[n]] for n in r]
-        print(f"\n🚌  Ruta {k}  (temps {t}, parades: {len(r) - 2}):")
+        print(f"\n Ruta {k}  (temps {t}, parades: {len(r) - 2}):")
         for n, nom in zip(r, noms):
             print(f"   {n} – {nom}")
     print(f"\n Temps total: {total}")
@@ -243,3 +243,4 @@ else:
 
 
 generar_mapa_interactiu_multi_solucio(solutions, stops_df, index2id, id2label, depot_id=26, strategy_names=strategy_names)
+
