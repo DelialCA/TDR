@@ -106,10 +106,10 @@ while True:
     try:
         parada_id = int(user_input)
     except ValueError:
-        print("❌ Introdueix un número d'ID o 'fi' per acabar.")
+        print("Introdueix un número d'ID o 'fi' per acabar.")
         continue
     if parada_id not in valid_ids:
-        print(f"❌ L'ID {parada_id} no és vàlid.")
+        print(f" L'ID {parada_id} no és vàlid.")
         continue
 
     print("Rutes actuals:")
@@ -123,12 +123,12 @@ while True:
             if 1 <= sel <= num_vehicles:
                 break
             else:
-                print(f"❌ Tria un número entre 1 i {num_vehicles}.")
+                print(f" Tria un número entre 1 i {num_vehicles}.")
         except ValueError:
-            print("❌ Has d'introduir un número.")
+            print("Has d'introduir un número.")
 
     routes[sel-1].append(parada_id)
-    print(f"✅ Parada {parada_id} afegida a la ruta {sel}.")
+    print(f"Parada {parada_id} afegida a la ruta {sel}.")
 
     mostrar_rutes_grafic(routes, G, id2label, fig, ax)
 
@@ -141,4 +141,5 @@ for i, r in enumerate(routes, 1):
         print(f"  {pid} – {nom}")
 
 plt.ioff()
+
 plt.show()
