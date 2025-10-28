@@ -64,7 +64,7 @@ def generar_mapa_interactiu_multi_solucio(solutions, stops_df, index2id, id2labe
 
     folium.LayerControl(collapsed=False).add_to(mapa)
     mapa.save("resultat eb.html")
-    print("✅ Mapa desat com 'resultat.html' amb menú de solucions.")
+    print("Mapa desat com 'resultat.html' amb menú de solucions.")
 
 #  1. CARREGAR DADES DES D'EXCEL
 FILE_PATH = "TDR.xlsx"
@@ -201,14 +201,14 @@ id2label = dict(zip(stops_df['ID'], stops_df['Nom']))
 
 for sol_num, (routes, route_times) in enumerate(solutions, start=1):
     alg_name = strategy_names[sol_num - 1]
-    print(f"\n 🔁  {alg_name} ")
+    print(f"\n  {alg_name} ")
     total = sum(route_times)
     for k, (r, t) in enumerate(zip(routes, route_times), start=1):
         noms = [id2label[index2id[n]] for n in r]
         print(f"\n🚌  Ruta {k}  (temps {t}, parades: {len(r) - 2}):")
         for n, nom in zip(r, noms):
             print(f"   {n} – {nom}")
-    print(f"\n⏱️  Temps total: {total}")
+    print(f"\n Temps total: {total}")
 
 #  6. GRAF DE LA PRIMERA SOLUCIÓ 
 if solutions:
@@ -239,6 +239,7 @@ if solutions:
     plt.tight_layout()
     plt.show()
 else:
-    print("❌ No s'ha trobat cap solució vàlida.")
+    print("No s'ha trobat cap solució vàlida.")
+
 
 generar_mapa_interactiu_multi_solucio(solutions, stops_df, index2id, id2label, depot_id=26, strategy_names=strategy_names)
